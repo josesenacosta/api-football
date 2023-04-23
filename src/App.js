@@ -3,17 +3,22 @@ import axios from 'axios';
 import './App.css';
 
 function App() {
+  //dados da liga e time
   const leagueId = 71;
   const teamId = 127;
   const seasonYear = 2023;
+
+  //Tratando a data atual
   const currentDate = new Date();
   const year = currentDate.getFullYear();
   const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
   const day = currentDate.getDate().toString().padStart(2, '0');
   const formatDate = `${year}-${month}-${day}`;
 
+  //use states
   const [team, setTeam] = useState();
   const [fixture, setFixture] = useState();
+  const [score, setScore] = useState();
 
   const urlTeam = `https://api-football-v1.p.rapidapi.com/v3/players/squads?team=${teamId}`;
 
@@ -33,13 +38,16 @@ function App() {
       setTeam(resposta);
     }
 
-    async function fecthPlacar() {
-      const fixtureResult = await axios.get(urlFixture, options);
-      const dados = fixtureResult.data.response;
-      setFixture(dados);
-    }
+    const interval = setInterval(() => {
+      async function fecthPlacar() {
+        const fixtureResult = await axios.get(urlFixture, options);
+        const dados = fixtureResult.data.response;
+        setFixture(dados);
+        setScore(dados[0].goals);
+      }
+      fecthPlacar();
+    }, 10000);
 
-    fecthPlacar();
     fetchLeague();
   }, []);
 
@@ -47,6 +55,7 @@ function App() {
     return <p>carregando...</p>;
   } else {
     console.log(fixture[0]);
+    console.log(fixture[0].goals);
   }
 
   return (
