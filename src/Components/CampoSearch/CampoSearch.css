@@ -1,0 +1,19 @@
+input {
+  padding: 10px;
+  width: 600px;
+  border-radius: 16px;
+  border: none;
+  background-color: #f6f6f4;
+  transition: 400ms;
+  color: #fff;
+}
+
+input:focus {
+ outline: none;
+ background-color:#354A43;
+}
+
+svg{
+  margin-top: 4px;
+  position: relative;
+}

@@ -1,0 +1,46 @@
+.cardLive {
+ background-color: white;
+ border-radius: 10px;
+ display: flex;
+ flex-direction: column;
+ overflow: hidden;
+ width: 100%;
+ align-items: center;
+ text-align: center;
+}
+
+.contentLive {
+  padding: 20px;
+
+}
+
+.date {
+  color: #fff;
+  background-color: #d91e18;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+}
+
+.time {
+  color: #666;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.teams {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.stadium {
+  color: #666;
+  font-size: 16px;
+  margin: 0;
+}
