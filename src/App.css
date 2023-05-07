@@ -20,6 +20,13 @@
   gap: 16px;
   padding: 8px;
 }
+
+@media (max-width: 40rem) {
+  .live {
+    grid-template-columns: 1fr;
+  }
+}
+
 .content {
   display: grid;
   grid-template-columns: 1fr;
@@ -29,3 +36,4 @@
 li {
   list-style: none;
 }
+
