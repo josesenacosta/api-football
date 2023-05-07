@@ -1,6 +1,10 @@
 .tabela {
   display: grid;
-  gap: 10px;
+  
+}
+
+.tabela .time {
+  min-width: 220px;
 }
 
 .tabela .tabelaTime {
@@ -20,6 +24,7 @@
   display: flex;
   gap: 10px;
   padding: 10px 0px;
+ 
 }
 
 .tabela img {

@@ -93,7 +93,7 @@ const Tabela = () => {
       {timeEscudo && <Escudo imagem={timeEscudo.escudo} />} */}
 
       <TableContainer className="tabela " variant="outlined">
-        <Table>
+        <Table className="tabela">
           <TableHead>
             <TableRow>
               <TableCell>Posição</TableCell>
@@ -109,7 +109,7 @@ const Tabela = () => {
             {tabela.map((t) => (
               <TableRow key={t.time.time_id}>
                 <TableCell>{t.posicao}</TableCell>
-                <TableCell>
+                <TableCell className="time">
                   {' '}
                   <img src={t.time.escudo} alt="" />
                   {t.time.nome_popular}
