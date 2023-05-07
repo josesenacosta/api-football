@@ -9,6 +9,14 @@ import {
   AiFillCheckCircle,
   AiFillCloseCircle,
 } from 'react-icons/ai';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from '@mui/material';
 
 const Tabela = () => {
   const [tabela, setTabela] = useState();
@@ -49,7 +57,7 @@ const Tabela = () => {
 
   return (
     <>
-      <div>
+      {/* <div>
         <h2>Classificação</h2>
         <ul className="tabela">
           {tabela.map((t) => (
@@ -82,7 +90,52 @@ const Tabela = () => {
           ))}
         </ul>
       </div>
-      {timeEscudo && <Escudo imagem={timeEscudo.escudo} />}
+      {timeEscudo && <Escudo imagem={timeEscudo.escudo} />} */}
+
+      <TableContainer className="tabela " variant="outlined">
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Posição</TableCell>
+              <TableCell>Time</TableCell>
+              <TableCell>P</TableCell>
+              <TableCell>V</TableCell>
+              <TableCell>E</TableCell>
+              <TableCell>D</TableCell>
+              <TableCell>Últimos Resultados</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {tabela.map((t) => (
+              <TableRow key={t.time.time_id}>
+                <TableCell>{t.posicao}</TableCell>
+                <TableCell>
+                  {' '}
+                  <img src={t.time.escudo} alt="" />
+                  {t.time.nome_popular}
+                </TableCell>
+                <TableCell>{t.pontos}</TableCell>
+                <TableCell>{t.vitorias}</TableCell>
+                <TableCell>{t.empates}</TableCell>
+                <TableCell>{t.derrotas}</TableCell>
+                <TableCell>
+                  {t.ultimos_jogos.map((resultado) =>
+                    resultado === 'v' ? (
+                      <AiFillCheckCircle color="green" />
+                    ) : resultado === 'd' ? (
+                      <AiFillCloseCircle color="red" />
+                    ) : resultado === 'e' ? (
+                      <AiFillMinusCircle color="gray" />
+                    ) : (
+                      ''
+                    ),
+                  )}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </>
   );
 };
